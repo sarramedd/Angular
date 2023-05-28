@@ -1,0 +1,50 @@
+ <div class="">
+<mat-card class="p-24">
+    <div fxLayout="row wrap">
+      <div fxFlex="70">
+        <mat-card-title>{{employee.firstName}} {{employee.lastName}}</mat-card-title>
+        <p class="text-small">
+          nom,prenom,offre/ / / /la note globale est:<span class="font-weight-bold">52</span>
+        </p>
+      </div>
+      <div fxFlex="30">
+        <apx-chart
+          [series]="welcomeProgressChart.series"
+          [chart]="welcomeProgressChart.chartOptions.chart"
+          [grid]="welcomeProgressChart.chartOptions.grid"
+          [plotOptions]="welcomeProgressChart.chartOptions.plotOptions"
+          [colors]="studyChart.chartOptions.colors"
+          [labels]="welcomeProgressChart.chartOptions.labels"
+          [dataLabels]="studyChart.chartOptions.dataLabels"
+          [xaxis]="studyChart.chartOptions.xaxis"
+          [yaxis]="studyChart.chartOptions.yaxis"
+        ></apx-chart>
+      </div>
+    </div>
+    <button  mat-raised-button class="mb-8 mr-16" style="float: right;" color="primary" (click)="openPopUpEntretien({},true)" >Ajouter un entretien </button>
+
+  </mat-card>
+     
+  <div style="padding-left: 15px;padding-right: 15px;">
+    <div></div>
+     <mat-accordion>
+  <!-------------entretien RH----------------->
+    <mat-expansion-panel *ngFor="let interviews of interview" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>description</mat-icon> &nbsp; &nbsp;{{interviews.interviewType}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="d-flex justify-content-between align-items-baseline">
+        
+              <div class="mr-2">
+                <button  mat-raised-button class="mb-8 mr-16" style="float: right;" color="primary" (click)="openPopupQuestionnaire()" >Ajouter un questionnaire </button>
+              </div>
+            </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+</div>
+  
